@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 
-// Базовый класс для событий
 abstract class CharacterEvent extends Equatable {
   const CharacterEvent();
 
@@ -10,7 +9,7 @@ abstract class CharacterEvent extends Equatable {
 
 // Событие загрузки персонажей
 class CharacterFetchEvent extends CharacterEvent {
-  final bool isRefresh; // Для pull-to-refresh
+  final bool isRefresh; 
   
   const CharacterFetchEvent({this.isRefresh = false});
 
@@ -38,4 +37,18 @@ class CharacterToggleFavoriteEvent extends CharacterEvent {
 
   @override
   List<Object?> get props => [characterId, isFavorite];
+}
+
+// Новое событие: предзагрузка страниц
+class CharacterPreloadPagesEvent extends CharacterEvent {
+  final int startPage;
+  final int pagesCount;
+  
+  const CharacterPreloadPagesEvent({
+    required this.startPage,
+    this.pagesCount = 2,
+  });
+
+  @override
+  List<Object?> get props => [startPage, pagesCount];
 }

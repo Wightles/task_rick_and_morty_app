@@ -3,12 +3,12 @@ import '/data/models/character_model.dart';
 
 class CharacterState extends Equatable {
   final List<CharacterModel> characters;
-  final List<int> favoriteIds; // ID избранных персонажей
+  final List<int> favoriteIds; 
   final bool isLoading;
   final bool isLoadingNextPage;
   final String? error;
   final int currentPage;
-  final bool hasReachedMax; // Все ли страницы загружены
+  final bool hasReachedMax;
 
   const CharacterState({
     required this.characters,
